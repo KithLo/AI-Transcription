@@ -138,8 +138,7 @@ def load_funasr_model():
             punc_model="iic/punc_ct-transformer_zh-cn-common-vocab272727-pytorch",
             device="cpu",
             ncpu=CPU_THREADS,
-            trust_remote_code=True,
-            disable_update=True
+            trust_remote_code=True
         )
     return "✅ Chinese model (`SenseVoiceSmall` + `ct-punc`, CPU) is ready."
 
