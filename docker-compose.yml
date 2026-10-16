@@ -1,0 +1,15 @@
+services:
+  transcriber:
+    build: .
+    container_name: audio-transcriber
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8421:7860"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - CPU_THREADS=4
+    volumes:
+      - ${TRANSCRIPTION_DATA_DIR}:/data
+    # Lower cgroup CPU weight (default is 1024). 
+    # Uses 100% of 4 cores when idle, but yields immediately when other containers/host processes need CPU.
+    cpu_shares: 256
