@@ -3,8 +3,6 @@ services:
     build: .
     container_name: audio-transcriber
     restart: unless-stopped
-    ports:
-      - "127.0.0.1:8421:7860"
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - CPU_THREADS=4
